@@ -1,0 +1,20 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Taras Matsyk"
+theme = "sustain"
+highlight = true
+
+[params]
+  avatar = "profile.png"
+  author = "Taras Matsyk"
+  description = "Describe your website"
+
+
+[params.social]
+  Github        = "tarasmatsyk"
+  Email         = "tamatsyk@gmail.com"
+  Twitter       = "tarasmatsyk"
+  LinkedIn      = "tarasmatsyk"
+  Stackoverflow = "users/3727348/taras-matsyk?tab=profile"
+  Facebook      = "tamatsyk"
+  Keybase       = "tarasmatsyk"
