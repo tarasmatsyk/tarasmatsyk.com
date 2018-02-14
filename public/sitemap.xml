@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>tarasmatsyk.netlify.com/categories/</loc>
+    <loc>https://tarasmatsyk.netlify.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>tarasmatsyk.netlify.com/tags/</loc>
+    <loc>https://tarasmatsyk.netlify.com/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>tarasmatsyk.netlify.com/</loc>
+    <loc>https://tarasmatsyk.netlify.com/</loc>
     <priority>0</priority>
   </url>
   
