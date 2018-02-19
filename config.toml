@@ -7,8 +7,7 @@ highlight = true
 [params]
   avatar = "profile.png"
   author = "Taras Matsyk"
-  description = "Describe your website"
-
+  description = "Taras Matsyk is a software engineer, indie hacker, open source contributor, surfer and public speaker"
 
 [params.social]
   Github        = "tarasmatsyk"
