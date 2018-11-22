@@ -1,13 +1,24 @@
 baseURL = "https://tarasmatsyk.com/"
 languageCode = "en-us"
 title = "Taras Matsyk"
-theme = "sustain"
+theme = "hyde-hyde"
 highlight = true
 
 [params]
   avatar = "profile.png"
   author = "Taras Matsyk"
   description = "Taras Matsyk is a software engineer, indie hacker, open source contributor, surfer and public speaker"
+
+[[menu.main]]
+    name = "Posts"
+    identifier = "posts"
+    weight = 10
+    url = "/posts/"
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 20
+    url = "/about/"
 
 [params.social]
   Github        = "tarasmatsyk"
