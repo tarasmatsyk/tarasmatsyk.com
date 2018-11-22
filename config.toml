@@ -9,7 +9,6 @@ googleAnalytics = "UA-129700443-1"
 [params]
     author = "Taras"
     # description = "..."
-    authorimage = "/img/profile.png"
     dateformat = "Jan 2, 2006"
     highlightjs = true
     highlightjsstyle = "github"
