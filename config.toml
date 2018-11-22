@@ -3,11 +3,18 @@ languageCode = "en-us"
 title = "Taras Matsyk"
 theme = "hyde-hyde"
 highlight = true
+# disqusShortname = "your-disqus-shortname"
+googleAnalytics = "UA-129700443-1"
 
 [params]
-  avatar = "profile.png"
-  author = "Taras Matsyk"
-  description = "Taras Matsyk is a software engineer, indie hacker, open source contributor, surfer and public speaker"
+    author = "Taras"
+    # description = "..."
+    authorimage = "/img/profile.png"
+    dateformat = "Jan 2, 2006"
+    highlightjs = true
+    highlightjsstyle = "github"
+    copyright = "© 2018 Taras Matsyk"
+    custom_css = ["css/custom.css"]
 
 [[menu.main]]
     name = "Posts"
@@ -20,10 +27,12 @@ highlight = true
     weight = 20
     url = "/about/"
 
+
 [params.social]
-  Github        = "tarasmatsyk"
-  Email         = "tamatsyk@gmail.com"
-  Twitter       = "tarasmatsyk"
-  LinkedIn      = "tarasmatsyk"
-  Stackoverflow = "users/3727348/taras-matsyk?tab=profile"
-  Facebook      = "tamatsyk"
+    github = "tarasmatsyk"
+    instagram = "tarasmatsyk"
+    linkedin = "tarasmatsyk"
+    twitter = "tarasmatsyk"
+    stackoverflow = "users/3727348/taras-matsyk?tab=profile"
+    telegram = "tarasmatsyk"
+    email = "hello@tarasmatsyk.com"
