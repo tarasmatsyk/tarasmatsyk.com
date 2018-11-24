@@ -7,7 +7,7 @@ draft: false
 I'm Tarа́s Mа́tsyk (Ukrainian: Тара́с Ма́цик, Russian: Тара́с Ма́цык).
 A [software engineer](https://stackoverflow.com/users/3727348/taras-matsyk), blogger ([blog in Ukrainian](http://ua.tarasmatsyk.com)) and [indie hacker](https://www.indiehackers.com/tamatsyk)
 
-If you wonder why title is so loud here are my life-time values:
+If you wonder why the title is so strong here are my life-time values:
 
 - People. \n
 - Software. \n
@@ -21,7 +21,7 @@ Among loving people and swearing I am a big fan of **Hip-Hop**, **Tatoos** (chec
 
 First of all, because I can and because building software is fun (sorry Medium, you will be always my second love).
 The next reason is because I have big plans and want people to be able to track it from the very begging. I am fine if I fail, what I am not fine with is if it is not going to be fun.
-That's two reasons this blog exists and an author will be super happy if you find it fun or usefull. 
+That are two reasons why this blog exists and an author will be super happy if you find it fun or usefull. 
 
 ### Where can I find more about you?
 Well, it's pretty easy, pick any icon in the header (on the left on desktops and top on the mobile devices)
