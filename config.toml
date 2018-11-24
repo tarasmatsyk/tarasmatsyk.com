@@ -7,7 +7,6 @@ highlight = true
 googleAnalytics = "UA-129700443-1"
 
 [params]
-    author = "Taras"
     description = 'Only code can judge me'
     dateformat = "Jan 2, 2006"
     highlightjs = true
@@ -36,3 +35,7 @@ googleAnalytics = "UA-129700443-1"
     telegram = "tarasmatsyk"
     email = "hello@tarasmatsyk.com"
     gravatar = "tamatsyk@gmail.com"
+
+[params.meta]
+    description = "Taras Matsyk is a software engineer, open-source contributor, an indie hacker and a public speaker."
+    keywords = "Python,Architecture,Machine Learning,JavaScript"
