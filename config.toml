@@ -8,12 +8,12 @@ googleAnalytics = "UA-129700443-1"
 
 [params]
     author = "Taras"
-    # description = "..."
+    description = 'Only code can judge me'
     dateformat = "Jan 2, 2006"
     highlightjs = true
     highlightjsstyle = "github"
     copyright = "© 2018 Taras Matsyk"
-    custom_css = ["css/custom.css"]
+    themeColor = "theme-base-0d"
 
 [[menu.main]]
     name = "Posts"
@@ -35,3 +35,4 @@ googleAnalytics = "UA-129700443-1"
     stackoverflow = "users/3727348/taras-matsyk?tab=profile"
     telegram = "tarasmatsyk"
     email = "hello@tarasmatsyk.com"
+    gravatar = "tamatsyk@gmail.com"
