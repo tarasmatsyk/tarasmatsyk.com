@@ -23,6 +23,20 @@ First of all, because I can and because building software is fun (sorry Medium, 
 The next reason is because I have big plans and want people to be able to track it from the very begging. I am fine if I fail, what I am not fine with is if it is not going to be fun.
 That are two reasons why this blog exists and an author will be super happy if you find it fun or usefull. 
 
+### What do you write about?
+
+Mostly.. software? Naah..
+Here I will be:
+
+- leaving all my discovering on blogging
+- making and launching side-projects indie-way
+- software architecture
+- management
+- running experiments on myself because why not
+
+If you think there is more I can add here: shot out to me in twitter.
+
+
 ### Where can I find more about you?
 Well, it's pretty easy, pick any icon in the header (on the left on desktops and top on the mobile devices)
 and send me a message. I always respond to emails and text message sent to me (private messager take more time) unless it goes to a spam folder.
