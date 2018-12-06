@@ -23,8 +23,8 @@ This is fine. Here are a few reasons for having a separate blog:
 
 - adding contact me / about me / email subscription buttons
 - being able to modify structure, theme, add any feature you want to (at least it's fun)
-- being able to work on SEO, not all blogging engine provide you with a good search optimization for you username and, sorry, I a not sharing my google traffic
-- you control advertising (or absence of it, ADs are the cancer of 21th century and everyone tries to avoid it)
+- being able to work on SEO, not all blogging engine provide you with a good search optimization for your username and, sorry, I a not sharing my google traffic
+- you control advertising (or absence of it, ADs are the cancer of 21st century and everyone tries to avoid it)
 - custom domain and direct links to only your content
 - and tons of other reasons you can think of
 
@@ -34,7 +34,7 @@ I will go from the easiest option to harder.
 No need to get a bare metal or dedicated server from DigitalOcean, we are not enemies to ourselves.
 
 In particular, here we will be talking about Static Site Generators, yes, this is one more post on SSG. 
-During last 2 month I've done an analysis of most popular solutions, tried 3 of them and ended up with Go :party:
+During the last 2 month I've done an analysis of most popular solutions, tried 3 of them and ended up with Go :party:
 
 
 #### What are the options
@@ -51,7 +51,7 @@ There are other engines which might be a better choice for you, however my main 
 
 <center><img src="https://i.postimg.cc/05W8wk8K/logo-2x.png"></center>
 
-Jekyll is awesome, because Ruby is awesome, because Matz is awesome and because [GitHub Pages](https://pages.github.com/) are outstanding. Some time ago you could not keep sources private and HTTP traffic secure, however its 2018 now, and GitHub improved greatly. 
+Jekyll is awesome, because Ruby is awesome, because Matz is awesome and because [GitHub Pages](https://pages.github.com/) are outstanding. Some time ago you could not keep sources private and HTTP traffic secure, however it is 2018 now, and GitHub improved greatly. 
 
 Jay has tons of [themes](http://lmgtfy.com/?q=jekyll+themes) and it is extremely easy to setup in GitHub. Jekyll is definitely a way to go if you are looking for an SSG.
 
@@ -98,7 +98,7 @@ Gatsby is awesome, no doubts about it, but there are 2 things that stopped me.
 First of all, I still remember times when developing a website sucked and sucked a lot. 
 Nowadays it is not an issue that much, however there is still a taste of sadness on the tips of my fingers when JS is used.
 
-Sorry, you can evaluate `'3' + 2` and `'3' - 2` as an excuse. Yeah, yeah, the answer is pretty obvious, but I want it to be logical!! Not obvious!
+Sorry, you can evaluate `'3' + 2` and `'3' - 2` as an excuse. Yeah, yeah, the reason is pretty obvious, but I want it to be logical!! Not obvious!
 
 The second reason is I am an engineer and there is always a brand new thing we all want to give a shot. Why not try something else? Ready?
 
@@ -183,6 +183,6 @@ As soon as you deployed a website, feel free to go the configured domain (or you
 This blog has been built using GoHugo and Netlify and it was damn easy. 
 All of it, should take about an hour, maybe 2 if we include domain selection and purchase into the process.
 
-Hope you enjoyed the reading and looking forward to seeing your blog in Hugo. Or Gatsby. Or Jekyll. Or your own framework of choice.
+Hope you enjoyed the reading and looking forward to seeing your blog in Hugo. Or Gatsby. Or Jekyll. Or your own framework.
 
 Now, we can start a holy war and answer the question of **Which framework do you use and why?**
