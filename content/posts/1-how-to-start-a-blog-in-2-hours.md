@@ -14,7 +14,7 @@ Let's give it a try."
 I know, I know, the very first question I receive when people hear "How to setup a blog" is:
 "Why the hell you need to setup a blog if Facebook, Blogger, Wordpress, Medium and the next Big Thing exist?"
 
-If this is the first question that comes to you mind - you probably do not need one.
+If this is the first question that comes to your mind - you probably do not need one.
 The only reason to have your own blog is a desire to have a control over it.
 
 <center><img src="https://i.postimg.cc/fTVvkKfX/darth-vader-PNG19.png"></center>
@@ -23,7 +23,7 @@ This is fine. Here are a few reasons for having a separate blog:
 
 - adding contact me / about me / email subscription buttons
 - being able to modify structure, theme, add any feature you want to (at least it's fun)
-- being able to work on SEO, not all blogging engine provide you with a good search optimization for you user name and, sorry, I a not sharing my google traffic
+- being able to work on SEO, not all blogging engine provide you with a good search optimization for you username and, sorry, I a not sharing my google traffic
 - you control advertising (or absence of it, ADs are the cancer of 21th century and everyone tries to avoid it)
 - custom domain and direct links to only your content
 - and tons of other reasons you can think of
@@ -33,19 +33,19 @@ This is fine. Here are a few reasons for having a separate blog:
 I will go from the easiest option to harder.
 No need to get a bare metal or dedicated server from DigitalOcean, we are not enemies to ourselves.
 
-In particular here we will be talking about Static Site Generators, yes, this is one more post on SSG. 
-During last 2 month I've done an analysys of most popular solutions, tried 3 of them and ended up with Go :party:
+In particular, here we will be talking about Static Site Generators, yes, this is one more post on SSG. 
+During last 2 month I've done an analysis of most popular solutions, tried 3 of them and ended up with Go :party:
 
 
 #### What are the options
 
-My most favourite SSG are:
+My most favorite SSG are:
 
 - [Jekyll](https://jekyllrb.com/) if you love Ruby or GitHub
 - [Gatsby](https://www.gatsbyjs.org) if you like React.js
 - [GoHugo](https://gohugo.io) if you want to give a shot to Go
 
-There are other engines which might be a better choice for you, however my main factors were shipping time, speed and convinience of use. Disclaimer, I do not want to learn a new language just to keep a blog and all interactions with SSG have to be close to 0.
+There are other engines which might be a better choice for you, however my main factors were shipping time, speed and convenience of use. Disclaimer, I do not want to learn a new language just to keep a blog and all interactions with SSG have to be close to 0.
 
 #### Jekyll
 
@@ -53,7 +53,7 @@ There are other engines which might be a better choice for you, however my main 
 
 Jekyll is awesome, because Ruby is awesome, because Matz is awesome and because [GitHub Pages](https://pages.github.com/) are outstanding. Some time ago you could not keep sources private and HTTP traffic secure, however its 2018 now, and GitHub improved greatly. 
 
-Jay has tons of [themes](http://lmgtfy.com/?q=jekyll+themes) and it is extremely easy to setup in GitHub. Jekyll is definetelly a way to go if you are looking for a SSG.
+Jay has tons of [themes](http://lmgtfy.com/?q=jekyll+themes) and it is extremely easy to setup in GitHub. Jekyll is definitely a way to go if you are looking for an SSG.
 
 Now, let me explain what is the downside here. I like Ruby, really, it is an awesome duck-typing language which is outstanding for web prototyping and [DSLs](https://en.wikipedia.org/wiki/Domain-specific_language), however I do not like manage environments too much. Since my main language is Python there are already conda, pip, pipenv and who knows what else lives on my machine. In my humble opinion SSG in python sucks and managing rvm or rbenv will not make my life easier. So, sorry, Jekyll, you are a nice guy but we have to break up, the problem was me.
 
@@ -61,12 +61,12 @@ Now, let me explain what is the downside here. I like Ruby, really, it is an awe
 
 <center><img src="https://i.postimg.cc/SKvBKsLm/gatsby.png"></center>
 
-Oh Great Gatsby, let run a party? JS is a king these days, is in it? Ok, ok, do not throw tomatos at me. Really, let's face the reality, JS has done huge progress recent years and it is mainstream already for quite a while.
+Oh Great Gatsby, let run a party? JS is a king these days, is in it? Ok, ok, do not throw tomatoes at me. Really, let's face the reality, JS has done huge progress in recent years and it is mainstream already for quite a while.
 
 What if I tell you that you can run a blog in JavaScript? Meeh, tell me better what I cannot run in JS?
 You are right, it is not so exciting anymore to write another thing in a prototype-based language.
 
-As we are about to use a framework, a SSG framework, not that much a language itself, what are the pros of Gee?
+As we are about to use a framework, an SSG framework, not that much a language itself, what are the pros of Gee?
 
 Here is a list of companies who use it:
 - Facebook (React docs)
@@ -79,12 +79,12 @@ Btw, Gatsby [is officially a startup](https://twitter.com/gatsbyjs/status/999684
 
 For me here are the pros of the framework:
 - dozens of themes for the blog
-- javascript and react-like expirience (I like React and find it easy and readable to write a blog using one of the most popular frameworks)
-- is under an active development and adopted by big companies
+- javascript and react-like experience (I like React and find it easy and readable to write a blog using one of the most popular frameworks)
+- is under active development and adopted by big companies
 - ease of use
 - actively evolving
 
-In my opinion adoption of Gatsby will only grow and the framework itself will become better and easier.
+In my opinion, the adoption of Gatsby will only grow and the framework itself will become better and easier.
 I am sure you will find more reasons to add it to your arsenal.
 
 ##### Cool, do I use it?
@@ -94,18 +94,18 @@ No.
 ##### Wh#t? Why?
 
 Gatsby is awesome, no doubts about it, but there are 2 things that stopped me. 
-First of all, I still remember times when developing a web-site sucked and sucked a lot. 
+First of all, I still remember times when developing a website sucked and sucked a lot. 
 Nowadays it is not an issue that much, however there is still a taste of sadness on the tips of my fingers when JS is used.
 Sorry, you can evaluate `'3' + 2` and `'3' - 2` as an excuse. Yeah, yeah, the answer is pretty obvious, but I want it to be logical!! Not obvious!
 
-The second reason is I am an engineer and there is always a brand new thing we all want to give a shot. Why not to try something else? Ready?
+The second reason is I am an engineer and there is always a brand new thing we all want to give a shot. Why not try something else? Ready?
 
 #### GoHugo
 
 <center><img src="https://i.postimg.cc/vBzcnqZW/gohugo.png"></center>
 
-GoHugo is a SSG written in Go. Yes, this is one more post about Go. And Static Site Generators. And personal blogs. And all that stuff, you know.
-It states that mister H is the world's fastests framework markdown renderers which could be true, I have not measured performance of any of previous options.
+GoHugo is an SSG written in Go. Yes, this is one more post about Go. And Static Site Generators. And personal blogs. And all that stuff, you know.
+It states that Mister H is the world's fastest framework markdown renderers which could be true, I have not measured performance of any of previous options.
 You are an engineer, how could you? I am sure all of them are good enough which is good for me.
 
 ##### Ok, so you wanted to write some Go?
@@ -131,7 +131,7 @@ If you decided to go with Jekyll - GitHub Pages is your ally here.
 For Gatsby and GoHugo my personal choice stopped at [Netlify](https://www.netlify.com/).
 Even more, it was more of a battle of GitHub Pages VS Netlify and guess who won here?
 
-If you have not used Netlify before here is a short steps you do to run a blog.
+If you have not used Netlify before here are steps you do to run a blog.
 
 1. Put your blog under version control (`git init`)
 2. Configure your remote repo in the Netlify (you can use GitHub, GitLab or Bitbucket. I tried all of them and stayed with GitHub just because I like green dots of commits)
@@ -150,7 +150,7 @@ A full installation step can be found [here](https://gohugo.io/getting-started/i
 
 A manual process is next:
 
-1. Go to the offical Go website and install the language. [Guide](https://golang.org/doc/install)
+1. Go to the official Go website and install the language. [Guide](https://golang.org/doc/install)
 2. You probably have Git installed already if you are reading this, but if not here is a [guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 3. Do 'brew install hugo' or `sudo apt-get install hugo` (Sorry windows, you have it's own path)
 
@@ -173,7 +173,7 @@ Here is a full guide on how to create a [blog](https://gohugo.io/getting-started
 4. Deploy config, domain, SSL, autodeploy are pretty easy and took me about 20 minutes. 
 If you need a better guide on how to host Hugo on Netlify, here is a link to the official (documentation)[https://gohugo.io/hosting-and-deployment/hosting-on-netlify/]
 
-There are other options than Netlify, however I really like them and never ever had an issue with hosting.
+There are other options than Netlify, however, I really like them and never ever had an issue with hosting.
 As soon as you deployed a website, feel free to go the configured domain (or you a provided one) and enjoy the work done.
 
 ### Summary
@@ -183,4 +183,4 @@ All of it, should take about an hour, maybe 2 if we include domain selection and
 
 Hope you enjoyed the reading and looking forward to seeing your blog in Hugo. Or Gatsby. Or Jekyll. Or your own framework of choice.
 
-Now, we can start a holy war and answe the question of **Which framework do you use and why?**
+Now, we can start a holy war and answer the question of **Which framework do you use and why?**
