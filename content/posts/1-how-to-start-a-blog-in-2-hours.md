@@ -78,6 +78,7 @@ Here is a list of companies who use it:
 Btw, Gatsby [is officially a startup](https://twitter.com/gatsbyjs/status/999684072501792768) so you are using a well-funded product.
 
 For me here are the pros of the framework:
+
 - dozens of themes for the blog
 - javascript and react-like experience (I like React and find it easy and readable to write a blog using one of the most popular frameworks)
 - is under active development and adopted by big companies
@@ -96,6 +97,7 @@ No.
 Gatsby is awesome, no doubts about it, but there are 2 things that stopped me. 
 First of all, I still remember times when developing a website sucked and sucked a lot. 
 Nowadays it is not an issue that much, however there is still a taste of sadness on the tips of my fingers when JS is used.
+
 Sorry, you can evaluate `'3' + 2` and `'3' - 2` as an excuse. Yeah, yeah, the answer is pretty obvious, but I want it to be logical!! Not obvious!
 
 The second reason is I am an engineer and there is always a brand new thing we all want to give a shot. Why not try something else? Ready?
@@ -105,13 +107,13 @@ The second reason is I am an engineer and there is always a brand new thing we a
 <center><img src="https://i.postimg.cc/vBzcnqZW/gohugo.png"></center>
 
 GoHugo is an SSG written in Go. Yes, this is one more post about Go. And Static Site Generators. And personal blogs. And all that stuff, you know.
-It states that Mister H is the world's fastest framework markdown renderers which could be true, I have not tested by my own the performance of any of the previous options.
+It states that Mister H is the world's fastest framework markdown renderers which could be true. I have not tested by my own the performance of any of the previous options.
 You are an engineer, how could you? I am sure all of them are good enough which is good for me.
 
 ##### Ok, so you wanted to write some Go?
 
 Nah, I did not want to. An interaction with a framework and its language should be close to 0. I want to write some f##king markdown and get an HTML.
-And on top of thaaaat.. I want a theme! Dozens of themes! 
+And on top of thaaaat.. I want a theme! Dozens of themes! And analytics.. And discuss comments.. And continious deploy. 
 
 So here is a list of advantages for me:
 
