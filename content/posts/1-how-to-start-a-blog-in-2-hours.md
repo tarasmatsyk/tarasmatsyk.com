@@ -55,7 +55,7 @@ Jekyll is awesome, because Ruby is awesome, because Matz is awesome and because 
 
 Jay has tons of [themes](http://lmgtfy.com/?q=jekyll+themes) and it is extremely easy to setup in GitHub. Jekyll is definitely a way to go if you are looking for an SSG.
 
-Now, let me explain what is the downside here. I like Ruby, really, it is an awesome duck-typing language which is outstanding for web prototyping and [DSLs](https://en.wikipedia.org/wiki/Domain-specific_language), however I do not like manage environments too much. Since my main language is Python there are already conda, pip, pipenv and who knows what else lives on my machine. In my humble opinion SSG in python sucks and managing rvm or rbenv will not make my life easier. So, sorry, Jekyll, you are a nice guy but we have to break up, the problem was me.
+Now, let me explain what is the downside here. I like Ruby, really, it is an awesome duck-typing language which is outstanding for web prototyping and [DSLs](https://en.wikipedia.org/wiki/Domain-specific_language), however I do not like to manage environments too much. Since my main language is Python there are already conda, pip, pipenv and who knows what else lives on my machine. In my humble opinion SSG in python sucks and managing rvm or rbenv will not make my life easier. So, sorry, Jekyll, you are a nice guy but we have to break up, the problem was me.
 
 #### Gatsby
 
@@ -105,7 +105,7 @@ The second reason is I am an engineer and there is always a brand new thing we a
 <center><img src="https://i.postimg.cc/vBzcnqZW/gohugo.png"></center>
 
 GoHugo is an SSG written in Go. Yes, this is one more post about Go. And Static Site Generators. And personal blogs. And all that stuff, you know.
-It states that Mister H is the world's fastest framework markdown renderers which could be true, I have not measured performance of any of previous options.
+It states that Mister H is the world's fastest framework markdown renderers which could be true, I have not tested by my own the performance of any of the previous options.
 You are an engineer, how could you? I am sure all of them are good enough which is good for me.
 
 ##### Ok, so you wanted to write some Go?
@@ -124,7 +124,7 @@ So here is a list of advantages for me:
 From the comparison above it seems to be not that good as Gatsby, however I really like the way GoHugo is built, organized and managed so decided to give it a shot.
 After a few months it ended up being.
 
-#### I have an engine? What's next?
+#### I have an engine. What's next?
 
 We've chosen an engine already, where to go next from here? 
 If you decided to go with Jekyll - GitHub Pages is your ally here. 
