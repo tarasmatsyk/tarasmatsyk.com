@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "Taras Matsyk"
 theme = "hyde-hyde"
 highlight = true
-# disqusShortname = "your-disqus-shortname"
+disqusShortname = "tarasmatsyk-com"
 googleAnalytics = "UA-129700443-1"
 
 [params]
