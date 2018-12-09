@@ -1,5 +1,5 @@
 ---
-title: "How to kick off a blog in 2 hours"
+title: "How To Kick Off A Blog In 2 Hours"
 date: 2018-11-22T22:07:52+02:00
 draft: false
 description: "
