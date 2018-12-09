@@ -9,17 +9,17 @@ Torch.Hub and Git come to rescue
 "
 ---
 
-Every time new model arrives (because it is trained for a month or new ImageNet challange happens) we need to update our models in production.
+Every time new model arrives (because it is trained for a month or new ImageNet challenge happens) we need to update our models in production.
 The question "How do you I know which model is running at the moment?" appears over and over again.
-As [PyTorch 1.0 came out recently](https://github.com/pytorch/pytorch/releases/tag/v1.0.0) there are a few features that I am personally a big fun of.
+As [PyTorch 1.0 came out recently](https://github.com/pytorch/pytorch/releases/tag/v1.0.0) there are a few features that I am personally a big fan of.
 One of them is `torch.hub`.
 
 So how did we store `~files` before?
 
 ### The old way
 I will describe one option and will be looking forward to hearing the next paragraph as an answer.
-If we have two files with different version, what do we do? I mean, not we, engineers, what would your mom do?
-If she is more or less advanced users anyone would think of either `date.now` as a version control. Any photographers here?
+If we have two files with a different version, what do we do? I mean, not we, engineers, what would your mom do?
+If you are a more or less advanced user, a good idea might be using a `date.now` as a version control. Any photographers here?
 When you do not care about data you can move right to the versioning: 
 
 - v1/mydeepnet21
@@ -27,18 +27,18 @@ When you do not care about data you can move right to the versioning:
 - v3/mydeepnet21
 
 Ok, ok, I hear you. I expect everyone reading this post now screaming: "Your versioning shall not pass".
-Anybody thinking of why people come up with git?
+Anybody thinking about why people come up with git?
 
-So what do I suggest? Actually, I like the idea PyTorch team come up with, I like how Docker manages images with tags and their docker hub.
+What do you suggest, you can say? Actually, I like the idea PyTorch team come up with, I like how Docker manages images with tags and their docker hub.
 Why do not we manage `mydeepnet21` in git too? 
 
 ### What's the use of git and PyTorch.Hub?
 
-But models are too large to keep in git. Nobody stores files in git, it's designed for source code!!!11
+> But models are too large to keep in git. Nobody stores files in git, it's designed for source code!!!11
 
 Weeeelll, yes, but not exactly.
 
-First of all, git is a version control system. And here is torch suggests us to version models.
+First of all, git is a version control system. And here is how torch suggests us to version models.
 Personally, I was thinking about this problem for a month from time to time and did not come with such a smart solution.
 
 
@@ -59,7 +59,7 @@ hub_model = hub.load(
 If you are about to use your own repo (and you are if you got here), just setup a repo with a `hubconf.py` file in it.
 An example can be found in [pytorch/vision](https://github.com/pytorch/vision)
 
-A content of `hubconf.py` is a declaration of your models with a link to downloadable file (model weights) in it. 
+A content of `hubconf.py` is a declaration of your models with a link to the downloadable file (model weights) in it. 
 An above example would look like:
 ```python
 import torch.utils.model_zoo as model_zoo
@@ -88,9 +88,9 @@ Here is a full documentation on [torch.hub](https://pytorch.org/docs/stable/hub.
 
 I think this is genius, as you can store your weights wherever you want and use a version control system to manage PyTorch models.
 
-### So what's the big deel?
+### So what's the big deal?
 
-I do not about you, guys, but I am defitenly going to use this feature extensively as it is a very common struggle.
+I do not know about you, guys, but I am definitely going to use this feature extensively as it is a very common struggle.
 Git is my favorite tool in terms of version control and coming up with a small tweak to version PyTorch models is a big deal for me.
 Yeah, you are right, any engineer who can write some Python and knows git could come up with a solution like that. Guess what, how many of them actually did?
 
