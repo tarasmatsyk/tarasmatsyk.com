@@ -14,7 +14,7 @@ Let me do it for you
 
 Again, if you are asking this question only now, you probably do not need one... Funny? 
 Why does this guy write on stuff that I do not need at the moment. The reason is simple, I hope you do, at some point.
-And when you do need to make a desicion - you will have the knowledge. 
+And when you do need to make a decision - you will have the knowledge. 
 
 ### Why do people use anything except gmail?
 
@@ -24,12 +24,12 @@ of you as a professional or a brand. For most people it does not matter however,
 tarasservice86@gmail.com or taras@thebestservice.com? See, its simple, if you want to look professional you need to invest in brand, no matter what kind of brand it is.
 
 ### So what are the options available for small business or indie makers?
-I am focusing on small business, indie makers or solo engineers because that's the area I am most familair with.
-We can go and look at services for 50+ people, the truth is, most of desicion here depends on: 
+I am focusing on small business, indie makers or solo engineers because that's the area I am most familiar with.
+We can go and look at services for 50+ people, the truth is, most of the decision here depends on: 
 
 - your social network (if I have a discount in outlook, google will not be my choice, sounds logical?)
 - your pocket
-- your willines to save time
+- your willingness to save time
 
 Ok, back to the business, the most popular alternatives I've seen are: **G-Suite**, **FastMail**, **Zoho** or even a **ProtonMail**. 
 I have one more option which I got being a part of IndieHackers and it will be covered later.
@@ -38,7 +38,7 @@ I have one more option which I got being a part of IndieHackers and it will be c
 
 [![gsuite-logo.png](https://i.postimg.cc/0jSKfdpr/gsuite-logo.png)](https://postimg.cc/Wq24pZYP)
 
-Show me a man who is not familiar with gmail, anyone here? Setting up custom domain using g-suite is a walk in the park, for everyone, literally.
+Show me a man who is not familiar with gmail, anyone here? Setting up a custom domain using g-suite is a walk in the park, for everyone, literally.
 I've never seen easiest configuration, Google beats everyone here. It has the only cons - price. 
 I know, I know, 5 bucks is a price of morning coffee, but let's go further. If I have 5 buddies and we want to try a custom email - the price goes to 25$.
 Over all services, it seems that Google gives the best value for asked money.
@@ -60,7 +60,7 @@ Over all services, it seems that Google gives the best value for asked money.
     <td>10$ (12$)</td>
   </tr>
   <tr>
-    <td>Enterprice</td> 
+    <td>Enterprise</td> 
     <td>25$ (same)</td>
   </tr>
 </table>
@@ -89,9 +89,9 @@ I know, I know, fast mail does not look so brand-new and there are less bells an
 You will notice FastMail at any Reddit or HackerNews topic where people are wondering on what email provider to chose.
 
 For some reason very few people aware of the service which seems strange for me, quality of the service is good enough, however, their customer support - meh.
-Let me tell you a story. I was one of the guys decided to give them a try. Everybody seem to be a fond of FastMail, reviews were good.
+Let me tell you a story. I was one of the guys decided to give them a try. Everybody seems to be fond of FastMail, reviews were good.
 
-Here is a [pricing](https://www.fastmail.com/pricing/):
+Here is [pricing](https://www.fastmail.com/pricing/):
 
 <table style="width:100%">
   <tr>
@@ -110,7 +110,7 @@ Here is a [pricing](https://www.fastmail.com/pricing/):
     <td>50$</td>
   </tr>
   <tr>
-    <td>Proffesional (100Gb storage)</td> 
+    <td>Profesional (100Gb storage)</td> 
     <td>9$</td> 
     <td>90$</td>
   </tr>
@@ -132,7 +132,7 @@ A story had a nice beginning and a new born gmail customer.
 I hope to see ProtonMail as a default mail in future. It does not mean future agrees with me of course, neither way, ProtonMail does a very good job at securing your data.
 The idea of the service is to provide end-to-end encryption to your email, which is awesome in my opinion.
 
-Here is a [pricing](https://www.fastmail.com/pricing/):
+Here is [pricing](https://protonmail.com/pricing):
 
 <table style="width:100%">
   <tr>
@@ -151,7 +151,7 @@ Here is a [pricing](https://www.fastmail.com/pricing/):
     <td>48$ (5Gb)</td>
   </tr>
   <tr>
-    <td>Proffesional</td> 
+    <td>Profesional</td> 
     <td>8$</td> 
     <td>75$ (5Gb per user)</td>
   </tr>
@@ -169,7 +169,7 @@ However, overall - the service is great.
 #### Easter egg
 
 I know it is not Easter right now :D
-This is not a promotion post, but the service I am using from 2019 is an extremely good at solving my problem - a custom domain for a few if not one person(s).
+This is not a promotion post, but the service I am using from 2019 is extremely good at solving my problem - a custom domain for a few if not one person(s).
 There is an advantage to be among IndieHackers - you see the products being born, new startups, services, attitudes and the best part - solution to engineers problems.
 
 So far, my default choice is (ImprovMX)[https://improvmx.com/]
