@@ -1,7 +1,7 @@
 ---
 title: "Indie Toolbox: How To Custom Email Address"
 date: 2019-01-20T13:01:22+02:00
-draft: true
+draft: false
 description: "
 Have you ever tried to setup a custom email adress.
 I mean, what happens after product is ready? Always stuck in refactoring and never got to sorting it out?
