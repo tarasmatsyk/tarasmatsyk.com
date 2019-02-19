@@ -25,7 +25,26 @@ Here, I want to cover 10 most common mistakes for using PyTorch in production. T
 If you have used TensorFlow back in the days, you are probably aware of the key difference between TF and PT - static and dynamic graphs.
 It was extremely hard to debug TFlow due to rebuilding graph every time your model has changed. It took time, efforts and your hope away too.
 
-Now, to make debugging easier dynamic graph is build and stored in so-called `Variables`. Every variable you use links to the previous variable buildiing relationships for easier back-propagation.
+Now, to make debugging easier dynamic graph is build and stored in so-called `Variables`. Every variable you use links to the previous variable buildiing relationships for back-propagation.
 
 Here is how it looks in practice:
 [![pytorch.gif](https://i.postimg.cc/4xjVQ04r/pytorch.gif)](https://postimg.cc/NK7KgpH4)
+
+There is a lot of confusion between `eval` mode, `detach` and `no_grad` usages. Let me clarify it a bit.
+After model is trained and deployed here are things you care about: Speed, Speed and CUDA Out of Memory exception.
+
+To speed up pytorch model you need to switch it into `eval` mode. It notifies all layers to use batchnorm and dropout layers in inference mode (simply saying deactivation dropouts).
+Now, there is a `detach` method which cuts variable from its computational graph. It's useful when you are building model from scratch but not very when you want to reuse State of Art mdoel.
+A more global solution would be to wrap forward in `torch.no_grad` context which reduces memory consumptions by not storing graph links in results. It saves memory, simplifies computations thus - you get more speed and less memory used. Bingo!
+
+
+### Mistake #2 - Not enabling cudnn optimization algorithms
+
+There is a lot of boolean flags you can set in nn.Module, the one you must be aware stored in cudnn namespace.
+To enable cudnn optimization use `cudnn.benchmark = True` and to make sure it cudnn does have permissions to look for optimized algorithms enable it by setting `cudnn.enabled = True`.
+
+Please be aware your data must be on GPU. 
+
+Another condition is to 
+
+
