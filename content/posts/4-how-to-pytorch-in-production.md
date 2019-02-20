@@ -14,7 +14,7 @@ Mostly it's all about Google vs Facebook battle.
 
 Most of my experience goes to PyTorch, eventhough most of tutorials and online tutorials use TensofFlow (or hopefully bare numpy).
 Currently, at Lalafo (AI-driven classified), we are having fun with PyTorch. No, really, we tried caffe, it is awesome, unless you have not spent a few days on installing it already.
-Event better, PyTorch is 1.0 now, we used it from 0.3 and it was dead simple and robust. Ahhh.. maybe a few tweaks here, a few tweaks there.
+Event better, PyTorch is 1.0 now, we were using it from 0.3 and it was dead simple and robust. Ahhh.. maybe a few tweaks here, a few tweaks there.
 Most of the issues were easy to fix and did not cause any problems for us. We stayed super happy about PyTorch.
 
 Last year was fully backed by PyTorch and Python. The service changes and grows succesfully and we learn more and more about dynamic graphs and performance tweaks.
@@ -42,9 +42,35 @@ A more global solution would be to wrap forward in `torch.no_grad` context which
 
 There is a lot of boolean flags you can set in nn.Module, the one you must be aware stored in cudnn namespace.
 To enable cudnn optimization use `cudnn.benchmark = True` and to make sure it cudnn does have permissions to look for optimized algorithms enable it by setting `cudnn.enabled = True`.
+NVIDIA does a lot of magic for you in terms of optimization which you could benefit from.
 
-Please be aware your data must be on GPU. 
+Please be aware your data must be on GPU and model input size should not vary. The more variaty in data - the less optimizations can be done.
+To normalize data you can pre-process images, for instance. Overall, be creative, but no too much.
 
-Another condition is to 
+### Mistake #3 - Re-using JIT-compilation
+PyTorch provides an easy way to optimize and reuse your models from different languages (read Python-To-Cpp). You might be more creative and inject your model in other languages if you are brave enough (I am not, `CUDA: Out of memory` is my motto)
 
+JIT-compilation allows to optimize computational graph if input does not change in shape. What it means is if you data does not vary too much (see Mistake #2) JIT is a way to go.
+To be honest, it did not make a huge difference comparing to `no_grad` and `cudnn` mentioned above, but it might. This is only a first version and has huge potential. 
+
+Please be aware that it does not work if you have `conditions` in your model which is a common case of RNNs.
+
+Full documentation can be found on [pytorch.org/docs/stable/jit](https://pytorch.org/docs/stable/jit.html)
+
+### Mistake #4 - Trying to scale using CPU instances
+GPUs are expencive, as VMs in the cloud. Even if you check AWS one instance will cost you around 100$/day (the lowest price is 0.7$/h) Reference: [aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/). Another useful cheatsheet I use is [www.ec2instances.info](https://www.ec2instances.info/)
+Every person who graduated from 3d grade could think: "Ok, what if I buy 5 CPU instances instead of 1 GPU".
+Everyone who has tried to run NN model on CPU knows this is a dead end. Yes, you could optimize a model for CPU, however in the end it still will be slower than a GPU one. 
+I strongly recommend to relax and forget about this idea, trust me.
+
+### Mistake #5 - Processing vectors instead of matrices
+
+- `cudnn` - check
+- `no_grad` - check
+- `GPU with correct version of CUDA` - check
+- `JIT-compilation` - check
+
+Everything is ready, what else can be done?
+
+Now it's time to use a bit of math. If you remember how most of NN are trained 
 
