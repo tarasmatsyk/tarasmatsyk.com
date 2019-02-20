@@ -72,5 +72,10 @@ I strongly recommend to relax and forget about this idea, trust me.
 
 Everything is ready, what else can be done?
 
-Now it's time to use a bit of math. If you remember how most of NN are trained 
+Now it's time to use a bit of math. If you remember how most of NN are trained using so-called Tensor(s). Tensor is an N-dimensional array or multi-linear geometric vectors mathematically speaking.
+What you could do is to group inputs (if you have a luxury to) into tensors or matrix and feed it into your model. For instance, using an array of images as a matrix sent to PyTorch. Performance gain equals to number of objects passed simultaneously.
+
+This is an obvious solution but few people actually using it as most of time objects are processed one by one and it might be a bit hard to setup such flow architecturally. Do not worry, you'll make it!
+
+  
 
