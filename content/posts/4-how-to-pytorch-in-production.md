@@ -53,7 +53,7 @@ PyTorch provides an easy way to optimize and reuse your models from different la
 JIT-compilation allows to optimize computational graph if input does not change in shape. What it means is if you data does not vary too much (see Mistake #2) JIT is a way to go.
 To be honest, it did not make a huge difference comparing to `no_grad` and `cudnn` mentioned above, but it might. This is only a first version and has huge potential. 
 
-Please be aware that it does not work if you have `conditions` in your model which is a common case of RNNs.
+Please be aware that it does not work if you have `conditions` in your model which is a common case in RNNs.
 
 Full documentation can be found on [pytorch.org/docs/stable/jit](https://pytorch.org/docs/stable/jit.html)
 
@@ -77,5 +77,10 @@ What you could do is to group inputs (if you have a luxury to) into tensors or m
 
 This is an obvious solution but few people actually using it as most of time objects are processed one by one and it might be a bit hard to setup such flow architecturally. Do not worry, you'll make it!
 
+
+### What's next?
+
+There are definetely more tips on how to optimize models in PyTorch. I will continue posting on our expirience using Facebook kid in the wild.
+What about you, what are your tips to achieve better performance on inference?
   
 
