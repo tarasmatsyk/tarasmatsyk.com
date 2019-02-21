@@ -1,7 +1,7 @@
 ---
 title: "How to Pytorch in Production"
 date: 2019-02-18T17:52:04+02:00
-draft: true
+draft: false
 description: "
 TensorFlow or PyTorch? What pokemon are you? 
 We will talk today on top 5 mistakes engineers make using PyTorch in production.
