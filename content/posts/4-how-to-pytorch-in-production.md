@@ -19,7 +19,7 @@ Most of the issues were easy to fix and did not cause any problems for us. Walk 
 
 Here, I want to share most common 5 mistakes for using PyTorch in production. Thinking about using CPU? Multithreading? Using more GPU memory? We've gone through it. Now let me guide you too.
 
-### Mistake #1 - Storing dynamic graph during in the inference mode
+### Mistake #1 - Storing dynamic graph in the inference mode
 
 If you have used TensorFlow back in the days, you are probably aware of the key difference between TF and PT - static and dynamic graphs.
 It was extremely hard to debug TFlow due to rebuilding graph every time your model has changed. It took time, efforts and your hope away too.
