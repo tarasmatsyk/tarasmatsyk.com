@@ -9,7 +9,7 @@ We've gone from a prototype to a production ready API. Here is how..
 ---
 
 Recently I was giving a talk on one more of deploying PyTorch models into production. You can find slides here [Event Driven ML](https://pyconodessa.com/public/docs/slideshare/taras_matsyk_-_event_driven_ml.pdf).
-In short we've started with a simple prototype running on Tornday and AWS and got to the point where we can scale services in a matter of seconds. Let me share my thoughts on the journey.
+In short we've started with a simple prototype runni
 
 ### How it all started?
 
@@ -33,7 +33,9 @@ To be honest such setup could classify around 200 images per minute and if I wou
 #### Where the number 200 comes from?
 
 It all depends on metrics, here is what we defined as successful image processing. Our classification process is next: You send us an image with a `POST` request, then you use `GET` to receive results. If results are ready - image was processed fast enough. Usually it takes between 1 and 2 seconds.
-Considering this requirement Tornado with a PyTorch running in a ThreadPool could process 200 images per minute. It worth to mention that we had 8Gb of GPU memory and around 20Gb of RAM, 5Gb of which was consumed by a server due to threading pool and queue for caching.
+Considering this requirement Tornado with a PyTorch running in a ThreadPool could process 200 images per minute. 
+
+It worth to mention that we had 8Gb of GPU memory and around 20Gb of RAM, 5Gb of which was consumed by a server due to threading pool and queue for caching.
 If you are wondering why we did not use ProcessPoolExecutor - that's because of PyTorch, it did not play well with python concurrency and it does not play well now. Considering you have to take care of memory sharing.
 
 #### So what? Is there a problem with current approach?
@@ -43,8 +45,55 @@ Here is how original plan looked like:
 
 [![Screen-Shot-2019-03-26-at-11-18-41-AM.png](https://i.postimg.cc/T32K0rXw/Screen-Shot-2019-03-26-at-11-18-41-AM.png)](https://postimg.cc/pp7VX5rb)
 
+We've had a few goals to achieve:
 
+1. Monitoring. (Send data points into influx and use Grafana for monitoring)
+2. Save some $. (We had a change to adopt K8s and selected Hetzner as a bare metal with linux on it provider)
+3. Being able to scale on request
+4. Have fun (We decided to adopt Go for data processing and API)
+5. Persistence (PSQL was chosen to store classification results so we can build reports and analyze history)
+6. Extendable (If we decide we want to add more ML - we should be able to do in a shortest possible term)
+7. SDK-friendly (API users should be happy as well)
 
+### Where did we end up. Let's review components
+
+Here is what we ended up with:
+
+[![Screen-Shot-2019-03-26-at-11-36-43-AM.png](https://i.postimg.cc/ZqrXqyC8/Screen-Shot-2019-03-26-at-11-36-43-AM.png)](https://postimg.cc/Y4Cdn0N0)
+
+Let's review difference and components one by one
+
+#### API VS ML
+
+The main desicion was to split interaction with clients and data processing layer. In the end we've got Go+Swagger+PostreSQL API which consumes around 20Mb or RAM, works extremely well and can be scaled by 10x without any thoughts abount new servers (yes, we have a limited data center capacity, however K8s solves it with adding extra capacity).
+
+The question comes what to put in between? We had different options, starting from Redis, RabbitMQ, HTTP/gRPC and started with Kafka. The main 2 advantages are: easy to scale with partitions and message buffering. The main disadvantage is rebalancing. If you used it before - you know it, otherwise please test Redis or RabbitMQ before you implement your own message bus.
+
+#### Monitoring
+
+As we had an Inlux server available it was a pretty reasonable choice to send some data points and monitor them using Grafana. Here is how live system looks like atm:
+
+[![Screen-Shot-2019-03-26-at-11-42-32-AM.png](https://i.postimg.cc/6qs04MgT/Screen-Shot-2019-03-26-at-11-42-32-AM.png)](https://postimg.cc/zbjW9FJ1)
+
+If we had to choose we would probably go either with Sentry or ELK stack using [APM](https://www.elastic.co/solutions/apm) on top of it. 
+
+#### Save some $
+
+AWS costs a lot, or at least a reasonable amount of money. We managed to save 10x $ by ordering a few GeForce GTX-1080 with 8Gb GPU on [Hetzner](https://www.hetzner.com/). Works really well for Europe. Also, I will not say it is super reliable, however if you put 2 clusters and a load balancer between them - everything works like a charm. Anyway, even 5 clusters would be 2x cheaper and 5 times more effective than AWS, sorry Jeff.
+
+#### Being able to scale on request
+
+If you ever tried helm in K8s or infrastructure as a code, you should know that scaling here is just a matter of a single line change. It's really easy to scale a pod once you are in K8s. Another question is how hard to get there, but we were lucky enough to get some expertise on a side.  
+
+#### Having fun
+
+Go is fun, is staticly typed, compiled language which was declared as a framework itself. Goroutines are more than famous, if you have any issues in production or life, just add a goroutine and it will get fixed. 
+
+While we definitely had fun and go is indeed a well designed language it still caused us some pain. If you come from a 25 years old language which has tons and dozens of libraries it might seem that Go does not have many and its true. Need a database? Write plain SQL. Need an API server? Write your own middleware and request parser. Need a documentation? Luckily it's there. And of course not fully complete if we talk about swagger. 
+
+On one hand, it saved us some time and pain produced by duck-typing, on another it is still not that mature and you need to give it back to the community even for 10 years aged language. Not so bad and not as sweet as people tell you. Take it with a grain of solt. Anyway, it worked well and we are sticking with it for small services.
+
+#### Persistence 
 
 
 
