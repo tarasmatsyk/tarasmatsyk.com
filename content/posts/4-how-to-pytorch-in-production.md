@@ -1,5 +1,5 @@
 ---
-title: "How to Pytorch in Production"
+title: "How to Pytorch in Production: Optimization"
 date: 2019-02-18T17:52:04+02:00
 draft: false
 description: "
