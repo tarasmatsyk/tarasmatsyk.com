@@ -1,7 +1,7 @@
 ---
 title: "How to Pytorch in Production: Architecture"
 date: 2019-03-26T08:32:36+02:00
-draft: true
+draft: false
 description: "
 What do you do when your model is ready? How to optimize it, how to serve it, how to deploy it.
 We've gone from a prototype to a production ready API. Here is how..
@@ -9,7 +9,18 @@ We've gone from a prototype to a production ready API. Here is how..
 ---
 
 Recently I was giving a talk on one more of deploying PyTorch models into production. You can find slides here [Event Driven ML](https://pyconodessa.com/public/docs/slideshare/taras_matsyk_-_event_driven_ml.pdf).
-In short we've started with a simple prototype runni
+In short we've started with a simple prototype and went to a production ready scalable solution. In this post I want to share our discoveries.
+
+### Who we are and what we do
+
+Basically, Lalafo is a classified. If you want to sell an old phone - you look for us. This is what moder paper advertisement become. 
+However, business model is pretty simple here, what we really want to do is to take it to the next level. So far, regular posting time takes around 2 minutes. What we want to do is to take it to the next level.
+To achieve it we need to be much more technological company that any competitors over the world. One of our helpers is AI, which is used to fill post with price, description, category by photo and a data we have about user and similar items.
+Here is how the end goal looks like (in short: you take a photo - we do the rest):
+
+[![Screen-Shot-2019-03-28-at-6-10-00-PM.png](https://i.postimg.cc/mgDRwzsN/Screen-Shot-2019-03-28-at-6-10-00-PM.png)](https://postimg.cc/9rvvXfzr)
+
+So far, we are integrating everything in the next version of the mobile app and performing user testing to make sure it is a fire.
 
 ### How it all started?
 
@@ -17,7 +28,7 @@ Or, how to build a prototype in a day.
 
 Let's be honest, whenever a business person comes to you and says: "I want to build self-driven car, can you do that?". Of course as a software engineer we have a solution. 
 
-What do we do? Me, personally, open google and type "stackoverflow how to self-driven car" -> hit enter.
+What do we do? Me, personally, go to the google and type "stackoverflow how to self-driven car" -> hit enter.
 The very first answer will tell you to use JQuery, the second one will give you a hint on where to start. That's how we approached an image recognition challenge and the start was pretty simple, here is a set of technologies that were chosen:
 
 [![Screen-Shot-2019-03-26-at-10-11-01-AM.png](https://i.postimg.cc/mgBqhrWC/Screen-Shot-2019-03-26-at-10-11-01-AM.png)](https://postimg.cc/QHYSyhtd)
@@ -40,7 +51,7 @@ If you are wondering why we did not use ProcessPoolExecutor - that's because of 
 
 #### So what? Is there a problem with current approach?
 
-Well, to say the least, AWS is expensive, threading is not parallelism and Tornado monitoring is hard. That's where we started thinking on building an extendable distributed system.
+Well, to say the least, AWS is expensive, threading is not parallelism, Tornado monitoring is hard, scaling is not so obvious as well (just drop load balancer on top of N ~~workers~~ servers, we call it python way), ML results are not persistant etc. That's where we started thinking on building an extendable distributed system.
 Here is how original plan looked like:
 
 [![Screen-Shot-2019-03-26-at-11-18-41-AM.png](https://i.postimg.cc/T32K0rXw/Screen-Shot-2019-03-26-at-11-18-41-AM.png)](https://postimg.cc/pp7VX5rb)
@@ -67,11 +78,11 @@ Let's review difference and components one by one
 
 The main desicion was to split interaction with clients and data processing layer. In the end we've got Go+Swagger+PostreSQL API which consumes around 20Mb or RAM, works extremely well and can be scaled by 10x without any thoughts abount new servers (yes, we have a limited data center capacity, however K8s solves it with adding extra capacity).
 
-The question comes what to put in between? We had different options, starting from Redis, RabbitMQ, HTTP/gRPC and started with Kafka. The main 2 advantages are: easy to scale with partitions and message buffering. The main disadvantage is rebalancing. If you used it before - you know it, otherwise please test Redis or RabbitMQ before you implement your own message bus.
+The question comes what to put in between? We had different options, starting from Redis, RabbitMQ, HTTP/gRPC and ended up with Kafka. The main 2 advantages are: easy to scale with partitions and message buffering. The main disadvantage is rebalancing. If you used it before - you know it, otherwise please test Redis or RabbitMQ before you implement your own message bus.
 
 #### Monitoring
 
-As we had an Inlux server available it was a pretty reasonable choice to send some data points and monitor them using Grafana. Here is how live system looks like atm:
+As we had an Influx server available it was a pretty reasonable choice to send some data points and monitor them using Grafana. Here is how live system looks like atm:
 
 [![Screen-Shot-2019-03-26-at-11-42-32-AM.png](https://i.postimg.cc/6qs04MgT/Screen-Shot-2019-03-26-at-11-42-32-AM.png)](https://postimg.cc/zbjW9FJ1)
 
@@ -95,6 +106,32 @@ On one hand, it saved us some time and pain produced by duck-typing, on another 
 
 #### Persistence 
 
+The first milestone was Redis, because it is easy. You put json into memory and it lives well. Until.. you are out of RAM. Just drop more RAM on it. Correct. However if you have have processing RAM ends pretty fast. For us it was ~1Gb for 15 minutes of work. Let's increase it to 1 hour and you get 4Gb.
+RAM is definetely a cheap resource, however do you know what is cheaper? Disk space and in 2k19 SSD is cheap as hell and as fast as rabbit. 
+
+So we decided to go with a relational database, denormalize data and store it in PostgreSQL. Works pretty well and we are not going to move from it, unless we tired from data scheme maintenance and want to use NoSQL.
+If we can do it the right way. We tried to use MongoDB as NoSQL database to store historical data, because you know what, every BigData startup should use MongoDB - in the end, we spent more time optimizing it and writing code to deal with unstructured data. Will give it one more shot next time. 
 
 
+#### Extendable
+
+Let's get to the picture again. 
+
+[![Screen-Shot-2019-03-26-at-11-36-43-AM.png](https://i.postimg.cc/ZqrXqyC8/Screen-Shot-2019-03-26-at-11-36-43-AM.png)](https://postimg.cc/Y4Cdn0N0)
+
+See containers on the right? Every ML task lives in it's own container and does only 1 thing. Either this is an index of euclidean distances or classification task or regression - we put it in the separate box. This allows us to scale bottleneck places at any time without a need to tweek the rest of the system. If classification is slow - add more classificator, too many API requests - add one more API server. Each box is responsible for only one thing and it does it really well.
+If we decide to migrate from PyTorch to Keras or to TensorFlow - we can migrate a single container and see how it goes. If it works out - roll it out on the whole system. Does it sound like a plan?
+
+#### SDK-friendly
+
+As an engineer I really hate systems that work but either do not or have a very poor documentation. All you can do is to play with it, make a few guesses and who knows what is waiting for you when you go live. 
+I integrated probably every 3d-party system that was launched before 2017 and amount of poorly documented services is astonishing. We want our users to have a pleasent experience and we work hard on it. 
+
+A good starting point was a swagger documentation which we intend to use you autogenerate SDK-clients. This is basically what Amazon does and everything works well. However, every AWS client looks like you are writiing Java no matter what language you use. So the next milestone after we deliver well defined API would be native SDK-clients and ..drumroll.. examples on how to use them. Really, so many APIs lack at least examples, I am not even saying about documentation which might be misleading.
+
+
+#### Summary
+
+In the end, we are half-way on releasing new architecture and experimenting much more on what can be added as a feature. After we make sure it is feature-rich we are going to make it public, make it easy for developers and keep experimenting with scaling and performance tuning as it is fun.
+Let me know if you want to know where we decided to go in API to make it extendable with new features.
 
