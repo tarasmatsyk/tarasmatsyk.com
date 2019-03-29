@@ -14,7 +14,7 @@ In short we've started with a simple prototype and went to a production ready sc
 ### Who we are and what we do
 
 Basically, Lalafo is a classified. If you want to sell an old phone - you look for us. This is what moder paper advertisement become. 
-However, business model is pretty simple here, what we really want to do is to take it to the next level. So far, regular posting time takes around 2 minutes. What we want to do is to take it to the next level.
+However, business model is pretty simple here, what we really want to do is to take it to the next level. So far, regular posting time takes around 2 minutes. Our goal is to decrease this time to a few seconds. I am not joking here.
 To achieve it we need to be much more technological company that any competitors over the world. One of our helpers is AI, which is used to fill post with price, description, category by photo and a data we have about user and similar items.
 Here is how the end goal looks like (in short: you take a photo - we do the rest):
 
