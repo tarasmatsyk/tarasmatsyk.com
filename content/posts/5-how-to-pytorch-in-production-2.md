@@ -43,11 +43,16 @@ To be honest such setup could classify around 200 images per minute and if I wou
 
 #### Where the number 200 comes from?
 
-It all depends on metrics, here is what we defined as successful image processing. Our classification process is next: You send us an image with a `POST` request, then you use `GET` to receive results. If results are ready - image was processed fast enough. Usually it takes between 1 and 2 seconds.
-Considering this requirement Tornado with a PyTorch running in a ThreadPool could process 200 images per minute. 
+It all depends on metrics, here is what we defined as successful image processing. Our classification process is next: 
+
+- You send us an image with a `POST` request, 
+- then you use `GET` to receive results. 
+- If results are ready - image was processed fast enough. 
+
+Usually it takes between 1 and 2 seconds. Considering this requirement Tornado with a PyTorch running in a ThreadPool could process 200 images per minute. Why ThreadPool? Wait a bit, I'll explain.
 
 It worth to mention that we had 8Gb of GPU memory and around 20Gb of RAM, 5Gb of which was consumed by a server due to threading pool and queue for caching.
-If you are wondering why we did not use ProcessPoolExecutor - that's because of PyTorch, it did not play well with python concurrency and it does not play well now. Considering you have to take care of memory sharing.
+If you are wondering why we did not use ProcessPoolExecutor - that's because of PyTorch, it did not play well with python concurrency and it does not play well now. Considering you have to take care of memory sharing - ThreadPool was a pretty easy choise. Are we happy? Nope. Did we find a better way? I would not be so sure about it, however there is an alternative.
 
 #### So what? Is there a problem with current approach?
 
@@ -90,7 +95,7 @@ If we had to choose we would probably go either with Sentry or ELK stack using [
 
 #### Save some $
 
-AWS costs a lot, or at least a reasonable amount of money. We managed to save 10x $ by ordering a few GeForce GTX-1080 with 8Gb GPU on [Hetzner](https://www.hetzner.com/). Works really well for Europe. Also, I will not say it is super reliable, however if you put 2 clusters and a load balancer between them - everything works like a charm. Anyway, even 5 clusters would be 2x cheaper and 5 times more effective than AWS, sorry Jeff.
+AWS costs a lot, or more expensie than alternatives. We managed to save 10x $ by ordering a few GeForce GTX-1080 with 8Gb GPU on [Hetzner](https://www.hetzner.com/). Works really well for Europe. Also, I will not say it is super reliable, however if you put 2 clusters and a load balancer between them - everything works like a charm. Anyway, even 5 clusters would be 2x cheaper and 5 times more effective than AWS, sorry Jeff.
 
 #### Being able to scale on request
 
@@ -102,15 +107,15 @@ Go is fun, is staticly typed, compiled language which was declared as a framewor
 
 While we definitely had fun and go is indeed a well designed language it still caused us some pain. If you come from a 25 years old language which has tons and dozens of libraries it might seem that Go does not have many and its true. Need a database? Write plain SQL. Need an API server? Write your own middleware and request parser. Need a documentation? Luckily it's there. And of course not fully complete if we talk about swagger. 
 
-On one hand, it saved us some time and pain produced by duck-typing, on another it is still not that mature and you need to give it back to the community even for 10 years aged language. Not so bad and not as sweet as people tell you. Take it with a grain of solt. Anyway, it worked well and we are sticking with it for small services.
+On one hand, it saved us some time and pain produced by duck-typing, on another it is still not that mature and you need to give credits back to the community even for 10 years aged language. Not so bad and not as sweet as people tell you. Take it with a grain of solt. Anyway, it worked well and we are sticking with it for small services.
 
 #### Persistence 
 
-The first milestone was Redis, because it is easy. You put json into memory and it lives well. Until.. you are out of RAM. Just drop more RAM on it. Correct. However if you have have processing RAM ends pretty fast. For us it was ~1Gb for 15 minutes of work. Let's increase it to 1 hour and you get 4Gb.
+The first milestone was Redis, because it is easy. You put json into memory and it lives well. Until.. you are out of RAM. Just drop more RAM on it. Correct. However if you have have processing RAM ends pretty fast. For us it was around 1Gb for 15 minutes of work. Let's increase it to 1 hour and you get 4Gb.
 RAM is definetely a cheap resource, however do you know what is cheaper? Disk space and in 2k19 SSD is cheap as hell and as fast as rabbit. 
 
-So we decided to go with a relational database, denormalize data and store it in PostgreSQL. Works pretty well and we are not going to move from it, unless we tired from data scheme maintenance and want to use NoSQL.
-If we can do it the right way. We tried to use MongoDB as NoSQL database to store historical data, because you know what, every BigData startup should use MongoDB - in the end, we spent more time optimizing it and writing code to deal with unstructured data. Will give it one more shot next time. 
+So we decided to go with a relational database, denormalize data and store it in PostgreSQL. Works pretty well and we are not going to move from it, unless we are tired from data scheme maintenance and want to use NoSQL.
+If we can do it the right way. We tried to use MongoDB as a NoSQL database to store historical data, because you know what, every BigData startup should use MongoDB - in the end, we spent more time optimizing it and writing code to deal with unstructured data. Will give it one more shot next time. 
 
 
 #### Extendable
