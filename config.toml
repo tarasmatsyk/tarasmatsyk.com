@@ -11,7 +11,7 @@ googleAnalytics = "UA-129700443-1"
     dateformat = "Jan 2, 2006"
     highlightjs = true
     highlightjsstyle = "github"
-    copyright = "© 2018 Taras Matsyk"
+    copyright = "© 2019 Taras Matsyk"
     themeColor = "theme-base-0d"
 
 [[menu.main]]
