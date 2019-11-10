@@ -179,5 +179,5 @@ So far, my default choice is (ImprovMX)[https://improvmx.com/]
 The idea is simple, you register their nameservice and get an easy going email forwarding tool. How cool is that?
 The truth about having tons of emails if that - I do not want to have them, even 2 emails is too much, now I have around 7 of them.
 
-Do I need another one to manage? Definitely no,  Now all the emails from my domain are redirected to my email of choice. Do not believe me? Try to text me at <mailto:hello@tarasmatsyk.com>
+Do I need another one to manage? Definitely no,  Now all the emails from my domain are redirected to my email of choice. Do not believe me? Try to text me at hello at tarasmatsyk.com
 
